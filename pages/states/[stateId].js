@@ -1,7 +1,10 @@
-import React from "react";
+import Head from "next/head";
+import { InfoCardsGrid, Layout } from "../../components";
 
-const State = () => {
-  return <div>State</div>;
-};
-
-export default State;
+export default function Home() {
+  return (
+    <Layout>
+      <InfoCardsGrid cards={["", "", ""]} />
+    </Layout>
+  );
+}

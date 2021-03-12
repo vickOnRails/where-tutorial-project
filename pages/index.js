@@ -1,15 +1,10 @@
 import Head from "next/head";
+import { InfoCardsGrid, Layout } from "../components";
 
 export default function Home() {
   return (
-    <>
-      <header></header>
-      <main>
-        <section className="search">
-          <input type="text" placeholder="Search State" />
-        </section>
-      </main>
-      <footer></footer>
-    </>
+    <Layout>
+      <InfoCardsGrid cards={["", "", ""]} />
+    </Layout>
   );
 }
