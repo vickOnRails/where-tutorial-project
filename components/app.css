@@ -37,13 +37,15 @@ body {
 
 .info-card {
   background: var(--white);
-  padding: 0.75em;
   margin-bottom: 0.75em;
   border-radius: 4px;
 }
+
 .info-card__heading {
   font-size: 1em;
-  margin-bottom: 0.63em;
+  margin-bottom: 0.5em;
+  color: #222;
+  line-height: 1;
 }
 .info-card__heading--small {
   font-weight: 400;
@@ -61,11 +63,43 @@ body {
   font-size: 0.87em;
   border-radius: 30px;
 }
+.info-card__link {
+  display: block;
+  padding: 1em 0.75em 0.75em;
+  text-decoration: none;
+}
 
 .main {
   padding-left: 0.63em;
   padding-right: 0.63em;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2em;
+  border-bottom: 1px solid var(--chips-grey);
+  padding: 0 0 0 0.75em;
+}
+.search-input {
+  width: 100%;
+  font-size: 1em;
+
+  padding: 1em 0 1em 0.5em;
+  height: 100%;
+  border: 0;
+  background: inherit;
+}
+
 input {
   font-family: inherit;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.info-card {
+  flex: 1 1 350px;
 }
