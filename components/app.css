@@ -7,6 +7,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+input {
+  box-sizing: border-box;
+}
 :root {
   --white: #fff;
   --background-grey: #f5f5f5;
@@ -21,15 +24,20 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.4;
 }
-
+.main {
+  margin-bottom: 1em;
+}
 .container {
   padding-left: 0.87em;
   padding-right: 0.87em;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .nav {
   background: var(--white);
   padding: 1em 0;
+  margin-bottom: 1em;
 }
 .nav__text {
   font-size: 0.87em;
@@ -65,42 +73,72 @@ body {
 }
 .info-card__link {
   display: block;
-  padding: 1em 0.75em 0.75em;
+  padding: 1em;
   text-decoration: none;
-}
-
-.main {
-  padding-left: 0.63em;
-  padding-right: 0.63em;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .search-container {
   display: flex;
   align-items: center;
-  margin-bottom: 1.2em;
   border-bottom: 1px solid var(--chips-grey);
-  padding: 0 0 0 0.75em;
+  padding: 0 0.75em;
+  margin: 0 0.75em 1em;
+  max-width: 1100px;
+  transition: background 0.2s ease-in;
 }
+
 .search-input {
   width: 100%;
   font-size: 1em;
-
   padding: 1em 0 1em 0.5em;
   height: 100%;
   border: 0;
   background: inherit;
 }
-
+.search-input:active,
+.search-input:focus {
+  outline: none;
+}
+.search-icon {
+  stroke: var(--grey-text);
+  transition: stroke 0.2s ease-in;
+}
+.search-container.focus {
+  background: #fff;
+  border-radius: 4px;
+}
+.search-container.focus .search-icon {
+  stroke: blue;
+}
 input {
   font-family: inherit;
 }
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .info-card {
   flex: 1 1 350px;
-  margin-right: 0.5em;
+}
+
+@media (min-width: 760px) {
+  .search-container {
+    margin: 0 1em 1em;
+  }
+  .info-card {
+    flex: 0 1 49%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container {
+    padding: 0;
+  }
+  .search-container {
+    margin: 0 auto 1em;
+  }
+  .info-card {
+    flex-basis: 32.5%;
+  }
 }
