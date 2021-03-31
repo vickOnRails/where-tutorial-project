@@ -102,4 +102,5 @@ input {
 }
 .info-card {
   flex: 1 1 350px;
+  margin-right: 0.5em;
 }

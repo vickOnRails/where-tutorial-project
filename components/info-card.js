@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { truncate } from "../util/truncate";
 
 const InfoCard = ({ title, subtitle, chip, description }) => {
   return (
@@ -11,7 +12,7 @@ const InfoCard = ({ title, subtitle, chip, description }) => {
               <small className="info-card__heading--small">- {subtitle}</small>
             )}
           </h2>
-          <p className="info-card__desc">{description}</p>
+          <p className="info-card__desc">{truncate(description, 150)}</p>
           {chip && <span className="info-card__chip">{chip}</span>}
         </a>
       </Link>
