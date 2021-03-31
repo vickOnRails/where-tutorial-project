@@ -26,6 +26,7 @@ body {
 }
 .main {
   margin-bottom: 1em;
+  min-height: calc(100vh - 130px);
 }
 .container {
   padding-left: 0.87em;

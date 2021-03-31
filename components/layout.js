@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Footer, Search } from "./";
+import { Nav, Footer } from "./";
 
 const Layout = ({ children }) => {
   return (
@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
       <header>
         <Nav />
       </header>
-      <Search />
+
       <main className="main">
         <div className="container">{children}</div>
       </main>

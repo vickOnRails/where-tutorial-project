@@ -1,12 +1,8 @@
-import { useRef, useState } from "react";
+import { useRef, FC, useState } from "react";
 
-const Search = () => {
-  const [searchText, setSearchText] = useState("");
+const Search = (props) => {
+  const { searchKeyword, setSearchKeyword } = props;
   const inputRef = useRef();
-
-  const handleSearchTextChange = (e) => {
-    setSearchText(e.target.value);
-  };
 
   const handleInputFocus = (e) => {
     const parent = e.target.parentNode;
@@ -29,14 +25,13 @@ const Search = () => {
         width="24"
         height="24"
         viewBox="0 0 24 24"
-        className="search-icon"
         stroke="#666666"
         fill="none"
-        stroke-width="2"
+        strokeWidth="2"
         onClick={handleSearchIconClick}
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-search"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="feather feather-search search-icon"
       >
         <circle cx="11" cy="11" r="8"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -47,9 +42,9 @@ const Search = () => {
         onBlur={handleInputBlur}
         onFocus={handleInputFocus}
         placeholder="Start typing to find a state..."
-        value={searchText}
+        value={searchKeyword}
         className="search-input"
-        onChange={handleSearchTextChange}
+        onChange={(e) => setSearchKeyword(e.target.value)}
       />
     </section>
   );

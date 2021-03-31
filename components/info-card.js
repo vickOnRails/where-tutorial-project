@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { truncate } from "../util/truncate";
 
-const InfoCard = ({ title, subtitle, chip, description }) => {
+const InfoCard = ({ id, title, subtitle, chip, description }) => {
   return (
     <article className="info-card">
-      <Link href="/states/state">
+      <Link href={`/states/${id}`}>
         <a className="info-card__link">
           <h2 className="info-card__heading">
             {title}{" "}
@@ -21,14 +21,16 @@ const InfoCard = ({ title, subtitle, chip, description }) => {
 };
 
 const InfoCardsGrid = ({ data }) => {
+  console.log(data);
   return (
     <section className="cards-container">
       {data.map((dataItem) => {
-        const { name, postalCode, description, capital } = dataItem;
+        const { name, postalCode, description, capital, id } = dataItem;
         return (
           <InfoCard
             key={dataItem.id}
             data={dataItem}
+            id={id}
             title={name}
             subtitle={capital}
             description={description}
