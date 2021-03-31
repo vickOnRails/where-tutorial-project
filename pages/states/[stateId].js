@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { InfoCardsGrid, Layout } from "../../components";
-import { url } from "../index";
-// import LGAs from "../../data/lgas.json";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
+import { url } from "../index";
+import { InfoCardsGrid, Layout, Spinner } from "../../components";
+// import LGAs from "../../data/lgas.json";
 import { apiKeys } from "../../util/key";
 
 // FIXME: do something with the head
@@ -28,7 +29,6 @@ export default function Home() {
       )
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
           setContentLoading(false);
           setLGAs(res.data);
         });
@@ -37,10 +37,9 @@ export default function Home() {
     fetchStateLGAs();
   }, [stateId]);
 
-  if (contentLoading) return <p>Loading...</p>;
   return (
     <Layout>
-      <InfoCardsGrid data={lgas} />
+      {contentLoading ? <Spinner /> : <InfoCardsGrid data={lgas} />}
     </Layout>
   );
 }

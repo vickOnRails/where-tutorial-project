@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { InfoCardsGrid, Layout, Search } from "../components";
+import { InfoCardsGrid, Layout, Search, Spinner } from "../components";
 import { apiKeys } from "../util/key";
 
 // FIXME: Do something with the actual head
@@ -41,7 +41,7 @@ export default function Home() {
         searchKeyword={searchKeyword}
         setSearchKeyword={handleSearchKeywordsChange}
       />
-      {contentLoading ? <p>Loading...</p> : <InfoCardsGrid data={states} />}
+      {contentLoading ? <Spinner /> : <InfoCardsGrid data={states} />}
     </Layout>
   );
 }

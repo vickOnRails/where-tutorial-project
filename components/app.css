@@ -114,6 +114,13 @@ body {
 input {
   font-family: inherit;
 }
+.spinner {
+  min-height: calc(100vh - 200px);
+  display: flex;
+}
+.spinner > * {
+  margin: auto;
+}
 .cards-container {
   display: flex;
   flex-wrap: wrap;
