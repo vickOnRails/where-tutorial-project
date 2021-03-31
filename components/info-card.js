@@ -21,7 +21,6 @@ const InfoCard = ({ id, title, subtitle, chip, description }) => {
 };
 
 const InfoCardsGrid = ({ data }) => {
-  console.log(data);
   return (
     <section className="cards-container">
       {data.map((dataItem) => {

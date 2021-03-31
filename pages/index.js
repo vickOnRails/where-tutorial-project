@@ -16,7 +16,6 @@ export default function Home() {
 
   useEffect(() => {
     const fetchStates = () => {
-      console.log(`Fetching`);
       setContentLoading(true);
       fetch(
         `${url}/countries/f794ecd7-679e-4989-9be6-e081ac2f7145/states?search=${searchKeyword}`,
@@ -26,10 +25,25 @@ export default function Home() {
           },
         }
       )
-        .then((res) => res.json())
+        .then(async (res) => {
+          if (res.status === 492) {
+            const errMesage = await res.json();
+            throw new Error(errMesage.message);
+          }
+          return res.json();
+        })
         .then((res) => {
           setStates(res.data);
           setContentLoading(false);
+        })
+        .catch((err) => {
+          const error =
+            err.response && err.response.data.message
+              ? err.response.data.message
+              : err.message;
+
+          setContentLoading(false);
+          throw new Error(error);
         });
     };
     fetchStates();

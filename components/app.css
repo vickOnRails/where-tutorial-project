@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
 
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  50% {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 *,
 *:after,
 *::before {
@@ -66,11 +80,12 @@ body {
   max-width: 95%;
 }
 .info-card__chip {
-  background: var(--chips-grey);
-  padding: 0.4em 0.8em;
+  /* background: var(--chips-grey); */
+  padding: 0.2em 0.8em;
   display: inline-block;
   font-size: 0.87em;
   border-radius: 30px;
+  border: 1px solid blue;
 }
 .info-card__link {
   display: block;
@@ -125,9 +140,14 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  animation: slideUp 0.4s;
 }
 .info-card {
   flex: 1 1 350px;
+  transition: transform 0.1s ease-in;
+}
+.info-card:hover {
+  transform: scale(1.01);
 }
 
 @media (min-width: 760px) {

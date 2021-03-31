@@ -31,6 +31,10 @@ export default function Home() {
         .then((res) => {
           setContentLoading(false);
           setLGAs(res.data);
+        })
+        .catch((err) => {
+          alert(`Throwing an error`);
+          throw new Error(err.message);
         });
     };
 
